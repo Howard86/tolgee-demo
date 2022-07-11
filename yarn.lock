@@ -2060,6 +2060,24 @@
     "@testing-library/dom" "^8.5.0"
     "@types/react-dom" "^18.0.0"
 
+"@tolgee/core@^4.7.2":
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/@tolgee/core/-/core-4.7.2.tgz#0f09aa1a9a343566893a9ae4e6be71d946731458"
+  integrity sha512-1NpVYqtnVv+j0IfQL7lBtR0LQEowue5zY5nUseoqDh2FtALf9CMz0TzPPrdp2EtmFFgrH00G+93TXHMHxnSevQ==
+
+"@tolgee/react@^4.7.2":
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/@tolgee/react/-/react-4.7.2.tgz#1529dff1649fceeafc2e24118853969e3809fd59"
+  integrity sha512-9nPSZ4NUrQLRF43ODwGGYr/wsVhwLdYofFLiXs9tQCSYIQcKrpbdZbqqJS7D3yzmZ/AUWFvznxJdzT/y0DHtLQ==
+  dependencies:
+    "@tolgee/core" "^4.7.2"
+    "@tolgee/ui" "^4.7.2"
+
+"@tolgee/ui@^4.7.2":
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/@tolgee/ui/-/ui-4.7.2.tgz#b91be8ad42c7146267e791256af1c9a6e9c53932"
+  integrity sha512-coLb7LlIfpSweOJEKggFb7JsBA+AYJuIRfJsGCAtBQvSLZSleVpb8y6VPat30PaujNuPKViEAKiue7SEBma/Jw==
+
 "@tootallnate/once@2":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
