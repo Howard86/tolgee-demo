@@ -2,6 +2,7 @@ import {
   Avatar,
   Box,
   Button,
+  ButtonGroup,
   chakra,
   CloseButton,
   Flex,
@@ -13,6 +14,7 @@ import {
   VisuallyHidden,
   VStack,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import {
   AiFillBell,
   AiFillHome,
@@ -21,9 +23,12 @@ import {
   AiOutlineMenu,
 } from 'react-icons/ai';
 
+import { AVAILABLE_LOCALES } from '../constatns/i18n';
+
 import RouteLink from './RouteLink';
 
 const AppBar = () => {
+  const router = useRouter();
   const bg = useColorModeValue('white', 'gray.800');
   const mobileNav = useDisclosure();
   return (
@@ -101,6 +106,18 @@ const AppBar = () => {
                 >
                   Inbox
                 </Button>
+                <ButtonGroup variant="outline" isAttached>
+                  {AVAILABLE_LOCALES.map((locale) => (
+                    <Button
+                      key={locale}
+                      onClick={() => {
+                        router.push(router.pathname, router.asPath, { locale });
+                      }}
+                    >
+                      {locale}
+                    </Button>
+                  ))}
+                </ButtonGroup>
               </VStack>
             </Box>
             <chakra.a
@@ -141,6 +158,18 @@ const AppBar = () => {
               >
                 Inbox
               </Button>
+              <ButtonGroup size="sm" variant="outline" isAttached>
+                {AVAILABLE_LOCALES.map((locale) => (
+                  <Button
+                    key={locale}
+                    onClick={() => {
+                      router.push(router.pathname, router.asPath, { locale });
+                    }}
+                  >
+                    {locale}
+                  </Button>
+                ))}
+              </ButtonGroup>
             </HStack>
             <chakra.a
               p={3}

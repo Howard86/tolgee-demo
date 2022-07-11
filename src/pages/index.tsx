@@ -13,6 +13,7 @@ import {
 import Head from 'next/head';
 
 import AppBar from '@/common/components/AppBar';
+import { getStaticLocaleProps } from '@/common/utils/static-props';
 
 const Home = (): JSX.Element => (
   <>
@@ -168,3 +169,5 @@ const Home = (): JSX.Element => (
 );
 
 export default Home;
+
+export const getStaticProps = getStaticLocaleProps;

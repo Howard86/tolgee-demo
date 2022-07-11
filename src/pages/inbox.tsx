@@ -2,6 +2,7 @@ import { Box, Button, chakra, Flex, HStack } from '@chakra-ui/react';
 import Head from 'next/head';
 
 import AppBar from '@/common/components/AppBar';
+import { getStaticLocaleProps } from '@/common/utils/static-props';
 
 const NewPage = (): JSX.Element => (
   <>
@@ -94,3 +95,5 @@ const NewPage = (): JSX.Element => (
 );
 
 export default NewPage;
+
+export const getStaticProps = getStaticLocaleProps;
