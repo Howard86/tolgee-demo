@@ -32,6 +32,8 @@
   "homepage": "https://github.com/Howard86/nextjs-template",
   "scripts": {
     "analyze": "ANALYZE=true next build",
+    "translate:extract": "i18next-scanner",
+    "translate:download": "ts-node scripts/download-translation",
     "check-all": "yarn type-check && yarn lint && yarn format",
     "type-check": "tsc --noEmit",
     "lint": "next lint",

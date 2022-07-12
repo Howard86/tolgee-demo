@@ -1,1 +1,20 @@
-{}
+{
+  "appbar-dashboard": "Dashboard",
+  "appbar-home": "Home",
+  "appbar-inbox": "Inbox",
+  "appbar-notification": "Notifications",
+  "form-email-address": "Email Address",
+  "form-first-name": "First Name",
+  "form-password": "Password",
+  "home-description": "Low-latency voice and video feels like you’re in the same room. Wave hello over video, watch friends stream their games, or gather up and have a drawing session with screen share.",
+  "home-form-alternative-login": "Continue with Google",
+  "home-form-description": "By signing up you agree to our <link>Terms of Service</link>",
+  "home-form-instruction": "Start talking now",
+  "home-form-submit": "Sign up for free",
+  "home-title": "Ready to start your journey in Singapore?",
+  "inbox-action-one": "Sign up for free",
+  "inbox-action-two": "Read our blog",
+  "inbox-description": "Today every company needs apps to engage their customers and run their businesses. Step up your ability to build, manage, and deploy great apps at scale with us.",
+  "inbox-tag": "For Developers",
+  "inbox-title": "Focus on your apps"
+}

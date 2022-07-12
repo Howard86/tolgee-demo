@@ -14,6 +14,7 @@ import {
   VisuallyHidden,
   VStack,
 } from '@chakra-ui/react';
+import { useTranslate } from '@tolgee/react';
 import { useRouter } from 'next/router';
 import {
   AiFillBell,
@@ -28,6 +29,8 @@ import { AVAILABLE_LOCALES } from '../constatns/i18n';
 import RouteLink from './RouteLink';
 
 const AppBar = () => {
+  const t = useTranslate();
+
   const router = useRouter();
   const bg = useColorModeValue('white', 'gray.800');
   const mobileNav = useDisclosure();
@@ -94,7 +97,7 @@ const AppBar = () => {
                   variant="ghost"
                   leftIcon={<AiFillHome />}
                 >
-                  Dashboard
+                  {t('appbar-dashboard')}
                 </Button>
                 <Button
                   as={RouteLink}
@@ -104,7 +107,7 @@ const AppBar = () => {
                   colorScheme="purple"
                   leftIcon={<AiOutlineInbox />}
                 >
-                  Inbox
+                  {t('appbar-inbox')}
                 </Button>
                 <ButtonGroup variant="outline" isAttached>
                   {AVAILABLE_LOCALES.map((locale) => (
@@ -129,7 +132,7 @@ const AppBar = () => {
               <Icon as={AiOutlineHome} />
               <VisuallyHidden>Choc</VisuallyHidden>
             </chakra.a>
-            <chakra.h1 fontSize="xl">Settings</chakra.h1>
+            <chakra.h1 fontSize="xl">{t('appbar-home')}</chakra.h1>
           </HStack>
           <HStack spacing={3} display="flex" alignItems="center">
             <HStack
@@ -146,7 +149,7 @@ const AppBar = () => {
                 leftIcon={<AiFillHome />}
                 size="sm"
               >
-                Dashboard
+                {t('appbar-dashboard')}
               </Button>
               <Button
                 as={RouteLink}
@@ -156,7 +159,7 @@ const AppBar = () => {
                 leftIcon={<AiOutlineInbox />}
                 size="sm"
               >
-                Inbox
+                {t('appbar-inbox')}
               </Button>
               <ButtonGroup size="sm" variant="outline" isAttached>
                 {AVAILABLE_LOCALES.map((locale) => (
@@ -186,7 +189,7 @@ const AppBar = () => {
               }}
             >
               <AiFillBell />
-              <VisuallyHidden>Notifications</VisuallyHidden>
+              <VisuallyHidden>{t('appbar-notification')}</VisuallyHidden>
             </chakra.a>
 
             <Avatar
