@@ -7,6 +7,6 @@ describe('home', () => {
     expect.hasAssertions();
     appRender(<Home />);
 
-    expect(document.title).toBe('Home');
+    expect(document.title).toBe('home-title');
   });
 });
