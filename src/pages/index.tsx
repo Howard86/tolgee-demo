@@ -1,127 +1,180 @@
 import {
   Box,
-  Container,
-  Heading,
-  Link,
+  Button,
+  Center,
+  chakra,
+  Flex,
+  GridItem,
+  Icon,
+  Input,
   SimpleGrid,
-  Skeleton,
-  Text,
+  VisuallyHidden,
 } from '@chakra-ui/react';
+import { useTranslate } from '@tolgee/react';
 import Head from 'next/head';
 
-import Image from '@/common/components/Image';
-import RouteLink from '@/common/components/RouteLink';
-import { useGetNameQuery } from '@/features/name/api';
-import vercelLogo from '@/public/vercel.svg';
+import AppBar from '@/common/components/AppBar';
+import { getStaticLocaleProps } from '@/common/utils/static-props';
 
 const Home = (): JSX.Element => {
-  const { data, isSuccess, fulfilledTimeStamp } = useGetNameQuery();
+  const t = useTranslate();
 
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>{t('home-title')}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container
-        display="flex"
-        flexDir="column"
-        h="full"
-        maxWidth="container.lg"
-      >
-        <Box
-          as="main"
-          py="8"
-          display="flex"
-          flexDir="column"
+      <AppBar />
+      <Box px={8} py={24} mx="auto">
+        <SimpleGrid
           alignItems="center"
-          flex={1}
+          w={{
+            base: 'full',
+            xl: 11 / 12,
+          }}
+          columns={{
+            base: 1,
+            lg: 11,
+          }}
+          gap={{
+            base: 0,
+            lg: 24,
+          }}
+          mx="auto"
         >
-          <Heading as="h1">
-            Welcome to{' '}
-            <Link href="https://nextjs.org" isExternal>
-              Next.js!
-            </Link>
-          </Heading>
-          <Text fontWeight="semibold" fontSize="lg">
-            Go to <RouteLink href="/new-page">New Page</RouteLink>
-          </Text>
-
-          <Skeleton isLoaded={isSuccess}>
-            {data && fulfilledTimeStamp && (
-              <Text>
-                Local API <Text as="code">/hello</Text> processed {data.name}{' '}
-                within {fulfilledTimeStamp - data.timestamp}ms
-              </Text>
-            )}
-          </Skeleton>
-
-          <Text mt="8">
-            Get started by editing <Text as="code">src/pages/index.tsx</Text>
-          </Text>
-
-          <SimpleGrid spacing={4} columns={[1, 2]} mt={[4, 12, 16]}>
-            <Link href="https://nextjs.org/docs" isExternal>
-              <Heading as="h3">Documentation &rarr;</Heading>
-              <Text>
-                Find in-depth information about Next.js features and API.
-              </Text>
-            </Link>
-
-            <Link href="https://nextjs.org/learn" isExternal>
-              <Heading as="h3">Learn &rarr;</Heading>
-              <Text>
-                Learn about Next.js in an interactive course with quizzes!
-              </Text>
-            </Link>
-
-            <Link
-              href="https://github.com/vercel/next.js/tree/master/examples"
-              isExternal
-            >
-              <Heading as="h3">Examples &rarr;</Heading>
-              <Text>
-                Discover and deploy boilerplate example Next.js projects.
-              </Text>
-            </Link>
-
-            <Link
-              href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              isExternal
-            >
-              <Heading as="h3">Deploy &rarr;</Heading>
-              <Text>
-                Instantly deploy your Next.js site to a public URL with Vercel.
-              </Text>
-            </Link>
-          </SimpleGrid>
-        </Box>
-
-        <Box
-          as="footer"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          borderTop="1px"
-          borderTopStyle="solid"
-          borderTopColor="gray.300"
-          py="2"
-        >
-          <Link
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexGrow={1}
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            isExternal
+          <GridItem
+            colSpan={{
+              base: 'auto',
+              lg: 7,
+            }}
+            textAlign={{
+              base: 'center',
+              lg: 'left',
+            }}
           >
-            Powered by{' '}
-            <Image src={vercelLogo} alt="Vercel Logo" width={64} height={64} />
-          </Link>
-        </Box>
-      </Container>
+            <chakra.h1
+              mb={4}
+              fontSize={{
+                base: '3xl',
+                md: '4xl',
+              }}
+              fontWeight="bold"
+              lineHeight={{
+                base: 'shorter',
+                md: 'none',
+              }}
+              color="gray.900"
+              _dark={{
+                color: 'gray.200',
+              }}
+              letterSpacing={{
+                base: 'normal',
+                md: 'tight',
+              }}
+            >
+              {t('home-title')}
+            </chakra.h1>
+            <chakra.p
+              mb={{
+                base: 10,
+                md: 4,
+              }}
+              fontSize={{
+                base: 'lg',
+                md: 'xl',
+              }}
+              fontWeight="thin"
+              color="gray.500"
+              letterSpacing="wider"
+            >
+              {t('home-description')}
+            </chakra.p>
+          </GridItem>
+          <GridItem
+            colSpan={{
+              base: 'auto',
+              md: 4,
+            }}
+          >
+            <Box as="form" mb={6} rounded="lg" shadow="xl">
+              <Center
+                pb={0}
+                color="gray.700"
+                _dark={{
+                  color: 'gray.600',
+                }}
+              >
+                <chakra.p pt={2}>{t('home-form-instruction')}</chakra.p>
+              </Center>
+              <SimpleGrid
+                columns={1}
+                px={6}
+                py={4}
+                spacing={4}
+                borderBottom="solid 1px"
+                color="gray.200"
+                _dark={{
+                  color: 'gray.700',
+                }}
+              >
+                <Flex>
+                  <VisuallyHidden>{t('form-first-name')}</VisuallyHidden>
+                  <Input mt={0} type="text" placeholder="First Name" />
+                </Flex>
+                <Flex>
+                  <VisuallyHidden>{t('form-email-address')}</VisuallyHidden>
+                  <Input mt={0} type="email" placeholder="Email Address" />
+                </Flex>
+                <Flex>
+                  <VisuallyHidden>{t('form-password')}</VisuallyHidden>
+                  <Input mt={0} type="password" placeholder="Password" />
+                </Flex>
+                <Button colorScheme="purple" w="full" py={2} type="submit">
+                  {t('home-form-submit')}
+                </Button>
+              </SimpleGrid>
+              <Flex px={6} py={4}>
+                <Button
+                  py={2}
+                  w="full"
+                  colorScheme="blue"
+                  leftIcon={
+                    <Icon
+                      mr={1}
+                      aria-hidden="true"
+                      boxSize={6}
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="transparent"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M20.283,10.356h-8.327v3.451h4.792c-0.446,2.193-2.313,3.453-4.792,3.453c-2.923,0-5.279-2.356-5.279-5.28	c0-2.923,2.356-5.279,5.279-5.279c1.259,0,2.397,0.447,3.29,1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233	c-4.954,0-8.934,3.979-8.934,8.934c0,4.955,3.979,8.934,8.934,8.934c4.467,0,8.529-3.249,8.529-8.934	C20.485,11.453,20.404,10.884,20.283,10.356z" />
+                    </Icon>
+                  }
+                >
+                  {t('home-form-alternative-login')}
+                </Button>
+              </Flex>
+            </Box>
+            <chakra.p fontSize="xs" textAlign="center" color="gray.600">
+              {t({
+                key: 'home-form-description',
+                parameters: {
+                  link: <chakra.a href="/" color="purple.500" />,
+                },
+              })}
+            </chakra.p>
+          </GridItem>
+        </SimpleGrid>
+      </Box>
+      ;
     </>
   );
 };
 
 export default Home;
+
+export const getStaticProps = getStaticLocaleProps;

@@ -4,6 +4,10 @@ const { PHASE_PRODUCTION_BUILD } = require('next/constants');
 const config = {
   reactStrictMode: true,
   swcMinify: true,
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'en-SG', 'zh-TW', 'zh-SG'],
+  },
   eslint: {
     dirs: ['src', '__tests__'],
   },
